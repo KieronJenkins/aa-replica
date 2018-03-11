@@ -40,7 +40,7 @@ public class loadingScene : MonoBehaviour {
 	void StartGame () {
 		if (_loadingCount == 100) {
 			_loadingOn = false;
-			SceneManager.LoadScene("_MainGame");
+			SceneManager.LoadScene ("_MainGame");
 		}
 	}
 
