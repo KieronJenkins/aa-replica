@@ -22,7 +22,9 @@ public class loadingScene : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		StartGame ();
+		if (_loadingCount == 100) {
+			StartCoroutine ("StartGame");
+		}
 
 		if (_loadingOn == true) { 
 			Loading ();
@@ -37,11 +39,12 @@ public class loadingScene : MonoBehaviour {
 
 	}
 
-	void StartGame () {
-		if (_loadingCount == 100) {
-			_loadingOn = false;
-			SceneManager.LoadScene ("_MainGame");
-		}
+	IEnumerator StartGame()
+	{
+		_loadingOn = false;
+		yield return new WaitForSeconds(3);
+		SceneManager.LoadScene ("_MainGame");
+
 	}
 
 }
